@@ -1,36 +1,33 @@
-const movesList = [
-  "left hand blue",
-  "left hand red",
-  "left hand green",
-  "left hand yellow",
-  "right hand blue",
-  "right hand red",
-  "right hand green",
-  "right hand yellow",
-  "left foot blue",
-  "left foot red",
-  "left foot green",
-  "left foot yellow",
-  "right foot blue",
-  "right foot red",
-  "right foot green",
-  "right foot yellow",
-];
-
 const colors = ["red", "blue", "green", "yellow"];
-const bodyParts = ["hand", "foot"];
+const bodyParts = ["🖐️", "🦶"];
 const bodySide = ["left", "right"];
 
-console.log(movesList[1]);
+// console.log(movesList[1]);
 
 const moveDisplay = document.querySelector(".container");
-const nextMove = document.querySelector(".next-move");
+const nextPosition = document.querySelector(".next-position");
+const nextPart = document.querySelector(".next-part");
+const nextColor = document.querySelector(".next-color");
 const moveBtn = document.querySelector(".next-btn");
+const blackTap = document.querySelector(".black-bg");
+const whiteTap = document.querySelector(".white-bg");
+const body = document.querySelector("body");
 
-moveBtn.addEventListener("click", () => {
+document.addEventListener("click", () => {
   let randBodySide = bodySide[Math.floor(Math.random() * bodySide.length)];
   let randBodyPart = bodyParts[Math.floor(Math.random() * bodyParts.length)];
   let randCol = colors[Math.floor(Math.random() * colors.length)];
   document.body.style.backgroundColor = randCol;
-  nextMove.innerHTML = `${randBodySide} ${randBodyPart} ${randCol}`;
+  if (
+    randCol == "blue" || randCol == "green" || randCol == "red"
+      ? (body.classList.add("color-alt"),
+        blackTap.classList.add("hidden"),
+        whiteTap.classList.remove("hidden"))
+      : (body.classList.remove("color-alt"),
+        blackTap.classList.remove("hidden"),
+        whiteTap.classList.add("hidden"))
+  );
+  nextPart.innerHTML = randBodyPart;
+  nextPosition.innerHTML = randBodySide;
+  nextColor.innerHTML = randCol;
 });
