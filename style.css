@@ -118,7 +118,7 @@ h2 {
 }
 
 p {
-  font-size: clamp(5rem, 4.6538rem + 1.5385vw, 6rem);
+  font-size: clamp(2rem, 1.6538rem + 1.5385vw, 3rem);
   text-transform: uppercase;
 }
 
@@ -161,7 +161,7 @@ section{
 }
 
 footer {
-  padding-top: 20px;
+  padding-top: 10px;
   height: 5vh;
   width: 100%;
   text-align: center;
